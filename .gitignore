@@ -1,0 +1,14 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+
+# Node (if any)
+node_modules/
+npm-debug.log
+
+# Gemini CLI
+.geminiignore
