@@ -2,18 +2,22 @@
 
 ## Project
 
-`creqa_automation` is a monorepo containing automation and monitoring suites for multiple internal products (G8, LDP2, web_app), using Pytest and Playwright as the main platform.
+This repository is a portable memory-bank engineering harness for AI coding agents.
 
 ## Core Goal
 
-Automate testing and monitoring for various domains and services, reporting results to Discord, Google Sheets, and NocoDB.
+Provide a clean, reusable operating contract that helps agents work safely across repositories by combining project memory, sequential reasoning, baby-step execution, verification, and durable learning capture.
 
 ## Harness Goal
 
-Maintain a cross-agent engineering harness to share project memory and engineering discipline across different AI assistants.
+Keep one compact source of truth that can be installed into another project as a `memory-bank/` folder or used directly from this root repository.
 
 ## Success Criteria
 
-- `memory-bank/00-HARNESS.md` is the highest-priority rule.
-- Core memory files accurately reflect the `creqa_automation` project structure and stack.
-- Automation suites are runnable and verified.
+- `00-HARNESS.md` is the highest-priority rule inside the installed harness.
+- Root adapters, including `AGENTS.md`, stay thin and point agents back to the harness entrypoint.
+- Every agent session runs sequential-thinking MCP before skills, edits, risky commands, or implementation.
+- Work is broken into Baby Steps and validated after each meaningful step.
+- Error recovery retries the same failing step at most 3 times before reporting the blocker to the user.
+- Durable changes automatically update memory files and connected Serena MCP memory before final response.
+- Memory files describe the active project or installed harness accurately, without stale project-specific facts.

@@ -19,7 +19,9 @@ Before touching source files, identify and keep in mind:
 5. A rollback-safe edit shape: no broad rewrites, no unrelated cleanup, no style churn.
 6. Existing patterns and symbols that might already satisfy the request. Search before creating new files, exports, hooks, services, routes, schemas, models, repositories, helpers, or shared types.
 
-Use available context tools, but do not depend on any single optional tool. If Graphify, an IDE index, or a code map is unavailable, use `rg`, source reading, tests, and `.planning/codebase/` artifacts.
+Use available context tools, but do not depend on any single optional tool. If an IDE index, code map, or optional context tool is unavailable, use `rg`, source reading, tests, and `.planning/codebase/` artifacts.
+
+Before editing code, run sequential-thinking MCP to identify the affected behavior, smallest safe edit shape, and validation path.
 
 ## Serena-First Impact Scan
 
@@ -46,14 +48,16 @@ Do not start implementation from a new abstraction until the existing owner and 
 - Do not introduce duplicate services, hooks, helpers, DTOs, schemas, or data mappers when an existing owner can be reused or extended.
 - Do not shadow existing variables, exports, field names, status values, config keys, or route names with a different semantic meaning.
 - Do not silence errors, remove validation, or weaken tests to make checks pass.
+- Do not degrade types, contracts, assertions, or functionality to hide errors. If a temporary workaround is unavoidable, keep it narrow and document the reason, risk, and follow-up.
 - Do not delete fallback behavior without proving it is dead or harmful.
-- If unrelated issues are discovered, record them in `memory-bank/HARNESS_BACKLOG.md`, `.planning`, or the final notes instead of fixing them opportunistically.
+- If unrelated issues are discovered, record them in `HARNESS_BACKLOG.md`, `.planning`, or the final notes instead of fixing them opportunistically.
 
 ## Terminal Safety
 
 - Prefer the narrowest command that verifies the requested behavior.
 - Do not run destructive commands, drop databases, delete generated evidence, or mutate external systems unless the user explicitly approved that action.
 - If a command fails, inspect the failure signal before changing code or rerunning broader commands.
+- For repeated failures, use the Error Recovery Loop in `20-engineering-loop.md`: re-run sequential-thinking MCP, retry with a smaller Baby Step, and stop after 3 failed retries on the same step.
 
 ## Debugging Gate
 
@@ -73,7 +77,7 @@ For features:
 2. Keep old flows working unless the feature intentionally replaces them.
 3. Reuse or extend the closest existing domain pattern before adding a new one.
 4. Add or update proof at the lowest reliable layer.
-5. Update `memory-bank/verificationMatrix.md` when the behavior becomes a durable contract item.
+5. Update `verificationMatrix.md` when the behavior becomes a durable contract item.
 
 ## Pre-Completion Diff Review
 
@@ -84,7 +88,7 @@ Before claiming completion after code changes:
 3. Confirm any changed or removed public symbol had a reference check, or explain why the symbol is private/local.
 4. Confirm no unrelated logic, formatting churn, dependency changes, generated files, or local user changes were swept in.
 5. Confirm new files, exports, hooks, services, routes, schemas, models, repositories, helpers, and shared types were not duplicates of existing project patterns.
-6. Run the relevant verification from `memory-bank/rules/30-testing-verification.md`.
+6. Run the relevant verification from `rules/30-testing-verification.md`.
 7. Report any skipped checks and why.
 
 Completion is blocked if diff review reveals unexplained behavior changes.

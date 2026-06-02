@@ -1,12 +1,12 @@
 # Human Transfer Guide
 
-This file is for humans preparing to copy `memory-bank/` into a new project.
+This file is for humans preparing to copy this harness into a new project, usually as `memory-bank/`.
 
-It is not part of the `memory-bank/00-HARNESS.md` load order. Agents should not read this file unless the user explicitly asks for transfer or reset guidance.
+It is not part of the default `00-HARNESS.md` load order. Agents should not read this file unless the user explicitly asks for transfer or reset guidance.
 
 ## New Project Reset Prompt
 
-Use this prompt after copying `memory-bank/` into a new repository:
+Use this prompt after copying the harness into a new repository as `memory-bank/`:
 
 ```text
 Read memory-bank/00-HARNESS.md first. Then reset this memory-bank for the current project:
@@ -17,6 +17,8 @@ Read memory-bank/00-HARNESS.md first. Then reset this memory-bank for the curren
 - Do not delete safety, verification, code-change, Serena, OOP, or design-pattern rules.
 - Report every file changed and what old project assumptions were removed.
 ```
+
+If the harness is installed at repository root instead, replace `memory-bank/00-HARNESS.md` with `00-HARNESS.md` in the prompt.
 
 ## What To Keep
 

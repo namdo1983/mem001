@@ -7,7 +7,7 @@ The core harness is always active. Expert playbooks are loaded only when the rep
 At the start of implementation or debugging work:
 
 1. Detect languages and capabilities from files, manifests, user request, and active task.
-2. Load only the matching files from `memory-bank/playbooks/`.
+2. Load only the matching files from `playbooks/`.
 3. If multiple capabilities apply, load all relevant playbooks.
 4. When uncertain, prefer the smallest relevant set and state the assumption.
 
@@ -17,7 +17,7 @@ At the start of implementation or debugging work:
 - Python: `pyproject.toml`, `requirements.txt`, `uv.lock`, `poetry.lock`, `.python-version`, `*.py`.
 - Java: `pom.xml`, `build.gradle`, `settings.gradle`, `*.java`.
 - C/C++: `CMakeLists.txt`, `Makefile`, `configure.ac`, `meson.build`, `*.c`, `*.h`, `*.cpp`, `*.cc`, `*.cxx`, `*.hpp`, `*.hh`.
-- C#/.NET: `*.sln`, `*.csproj`, `Directory.Build.props`, `Directory.Packages.props`, `global.json`, `*.cs`. No C# playbook is bundled by default; use core expert/design/testing rules unless a real .NET task justifies adding `memory-bank/playbooks/csharp-dotnet.md`.
+- C#/.NET: `*.sln`, `*.csproj`, `Directory.Build.props`, `Directory.Packages.props`, `global.json`, `*.cs`. No C# playbook is bundled by default; use core expert/design/testing rules unless a real .NET task justifies adding `playbooks/csharp-dotnet.md`.
 
 ## Capability Detection
 
@@ -32,25 +32,25 @@ At the start of implementation or debugging work:
 
 For any source-code feature, bug fix, refactor, or generated code:
 
-1. Always apply `memory-bank/rules/25-code-change-safety.md`.
-2. Load `memory-bank/playbooks/expert-programming.md`.
+1. Always apply `rules/25-code-change-safety.md`.
+2. Load `playbooks/expert-programming.md`.
 3. Load the detected language playbook.
-4. Load `memory-bank/playbooks/design-patterns.md` when the work touches OOP, public APIs, shared abstractions, repeated branching, module boundaries, dependency direction, or any new class/service/helper.
-5. Load `memory-bank/playbooks/fullstack-patterns.md` for frontend, backend, API, persistence, validation, integration, shared-type, or cross-layer changes.
+4. Load `playbooks/design-patterns.md` when the work touches OOP, public APIs, shared abstractions, repeated branching, module boundaries, dependency direction, or any new class/service/helper.
+5. Load `playbooks/fullstack-patterns.md` for frontend, backend, API, persistence, validation, integration, shared-type, or cross-layer changes.
 
 ## Routed Playbooks
 
 Load these as needed:
 
-- `memory-bank/playbooks/expert-programming.md`
-- `memory-bank/playbooks/design-patterns.md`
-- `memory-bank/playbooks/fullstack-patterns.md`
-- `memory-bank/playbooks/node-typescript.md`
-- `memory-bank/playbooks/python.md`
-- `memory-bank/playbooks/java.md`
-- `memory-bank/playbooks/c.md`
-- `memory-bank/playbooks/playwright-browser.md`
-- `memory-bank/playbooks/rapid-prototyping.md`
+- `playbooks/expert-programming.md`
+- `playbooks/design-patterns.md`
+- `playbooks/fullstack-patterns.md`
+- `playbooks/node-typescript.md`
+- `playbooks/python.md`
+- `playbooks/java.md`
+- `playbooks/c.md`
+- `playbooks/playwright-browser.md`
+- `playbooks/rapid-prototyping.md`
 
 ## Deferred Language Playbooks
 

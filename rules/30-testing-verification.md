@@ -16,11 +16,12 @@ Use the test pyramid:
 
 Prefer these checks as applicable:
 
-- `npm run lint`
-- `npm run build`
-- Browser verification for UI changes.
+- Markdown/path sanity check for changed harness files.
+- `git diff -- <changed paths>` for scoped diff review.
+- Local search for stale installed-path prefixes or stale project names when cleaning harness docs.
+- Syntax, lint, build, or test commands from the target repository after the harness is installed into an actual code project.
 
-If a dedicated test runner is added later, document it in `techContext.md` and use it before completion.
+If a dedicated test runner or validation script is added later, document it in `techContext.md` and use it before completion.
 
 ## Completion Evidence
 

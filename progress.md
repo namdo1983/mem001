@@ -2,22 +2,25 @@
 
 ## Works
 
-- Monorepo structure with `G8`, `LDP2`, `web_app`, and `ultis` established.
-- Automation framework using Pytest and Playwright is operational.
-- Web Canvas Refactor task (Phase 1-5) completed (tracked in `.planning`).
-- Web Canvas POM Component refactor completed for the unified `BrandPage` architecture, with component boundaries and contract validation added.
-- Memory bank updated to accurately describe the `creqa_automation` project (Python, Pytest, Playwright monorepo).
-- Cross-agent harness folder introduced and active.
-- Serena project configuration created and indexed.
+- Root-level harness structure is active: `AGENTS.md`, `00-HARNESS.md`, core memory files, `rules/`, `playbooks/`, and `adapters/`.
+- Core load order is documented in `00-HARNESS.md`.
+- Rule modules cover task classification, safety, verification, review, orchestration, documentation, capability routing, and optional context tools.
+- Routed playbooks exist for Python, Node/TypeScript, Java, C/C++, Playwright/browser automation, design patterns, expert programming, fullstack patterns, and rapid prototyping.
+- Mandatory sequential-thinking MCP, Baby Steps, and 3-retry error recovery are now part of the harness contract.
+- v5-derived refinements are part of the harness contract: Critical rollback policy, read-only-only parallel execution, no degrade-to-hide-errors safety, complexity-matched reporting, and explicit Serena memory save after durable changes.
+- Understand-Anything is documented as an optional context tool for existing knowledge graphs, onboarding, architecture orientation, diff-impact analysis, domain-flow discovery, and knowledge-base exploration.
+- Core memory files no longer describe an unrelated automation monorepo.
 
 ## Remaining
 
-- Keep harness memory synchronized as the project evolves.
-- Expand project-specific patterns when new features or fixes are implemented.
-- Maintain and update tests as product domains evolve.
-- Monitor execution results and refine reporting mechanisms.
+- Keep harness memory synchronized as the operating model evolves.
+- Keep source-map and verification matrix entries current when new durable rules are added.
+- Consider adding a lightweight script for stale-path and required-file checks if manual checks become repetitive.
+- Customize memory files after installing the harness into a real target project.
 
 ## Known Risks
 
-- Some suites depend on external files (e.g., `D:\isp.txt`) or credentials that might not be present in all environments.
-- Tests interacting with canvas elements may be sensitive to UI changes or resolution differences.
+- Adapter paths can drift when the harness is copied as root versus `memory-bank/`; adapters must be checked after installation.
+- Most harness behavior is Markdown-contract behavior, so proof is manual unless validation scripts are added later.
+- Optional tools such as Serena, Understand-Anything, browser tools, or IDE indexes may be unavailable in a target agent environment; rules must keep a clear fallback path.
+- Understand-Anything graph output can become stale or incomplete; it must not replace source reading, tests, logs, runtime verification, or diff review.

@@ -40,7 +40,7 @@ Mapping OpenAI's harness-engineering article into the local memory-bank.
 The harness has strong Markdown contracts, but freshness, cross-links, and drift are reviewed manually.
 
 ### Suggested Improvement
-Add a lightweight script or checklist that verifies required core files exist, root adapters point to `memory-bank/00-HARNESS.md`, important memory-bank links resolve, and changelog/source-map updates accompany structural harness changes.
+Add a lightweight script or checklist that verifies required core files exist, root adapters point to the installed harness entrypoint, important harness links resolve, and changelog/source-map updates accompany structural harness changes.
 
 ### Risk
 Standard

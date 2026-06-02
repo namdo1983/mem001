@@ -1,6 +1,6 @@
 # Node and TypeScript Playbook
 
-Load for Node, JavaScript, TypeScript, React, Vite, Refine, or package-based frontend/backend work.
+Load for Node, JavaScript, TypeScript, React, Vite, or package-based frontend/backend work.
 
 ## Detection
 
@@ -15,7 +15,7 @@ Prefer project scripts:
 - Build/typecheck: `npm run build`, or `tsc --noEmit` when configured.
 - Tests: `npm test`, `npm run test`, `npm run test:e2e`, or the repo-specific script.
 
-For this project, current checks are `npm run lint` and `npm run build`.
+Use the scripts already defined by the target repository. Do not assume this harness source repository has Node scripts.
 
 ## TypeScript Standards
 
@@ -41,9 +41,9 @@ For this project, current checks are `npm run lint` and `npm run build`.
 - Prefer accessible controls and stable layout dimensions.
 - Verify user-facing UI with browser evidence when changing layout or behavior.
 
-## Refine/PocketBase Notes
+## Provider and API Notes
 
-- Prefer existing provider patterns for data, auth, and PocketBase access.
-- Do not inject API-key headers into realtime endpoints.
-- Keep backend collection names and field mappings centralized when practical.
+- Prefer existing provider patterns for data, auth, API clients, and realtime access.
+- Do not add auth or API-key headers to endpoints that the target framework explicitly excludes.
+- Keep backend resource names and field mappings centralized when practical.
 

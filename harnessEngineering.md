@@ -6,7 +6,7 @@
 
 ## Local Reading
 
-This repo already uses `memory-bank/` as the agent-legible system of record. The OpenAI article should not be copied into the harness as another long rule file. Its durable value is a set of criteria for deciding what belongs in the repo, what should become tooling, and what should stay as human judgment.
+This repo uses the installed harness files as the agent-legible system of record. The OpenAI article should not be copied into the harness as another long rule file. Its durable value is a set of criteria for deciding what belongs in the repo, what should become tooling, and what should stay as human judgment.
 
 Use this file as a mapping layer from the article to this repository's harness contract.
 
@@ -26,8 +26,8 @@ Use this file as a mapping layer from the article to this repository's harness c
 | OpenAI lesson | Local mapping | Distilled repo stance |
 | --- | --- | --- |
 | Humans steer; agents execute. | `20-engineering-loop.md` classifies work, risk, and validation before edits. | The human supplies direction and acceptance pressure; the agent performs the repo work and proves it. |
-| A short `AGENTS.md` should act as a table of contents, not an encyclopedia. | Root `AGENTS.md` points to `memory-bank/00-HARNESS.md`; deeper rules live under `memory-bank/`. | Keep adapters thin. Do not move durable guidance back into root files. |
-| Repository knowledge is the system of record. | Core memory files, rules, playbooks, changelog, source map, backlog, and verification matrix are versioned project artifacts. | Decisions that matter to future agents should land in `memory-bank/`, `.planning/`, code, tests, or docs, not chat-only memory. |
+| A short `AGENTS.md` should act as a table of contents, not an encyclopedia. | Root `AGENTS.md` points to the installed harness entrypoint; deeper rules live in the harness. | Keep adapters thin. Do not move durable guidance back into root files. |
+| Repository knowledge is the system of record. | Core memory files, rules, playbooks, changelog, source map, backlog, and verification matrix are versioned project artifacts. | Decisions that matter to future agents should land in the installed harness, `.planning/`, code, tests, or docs, not chat-only memory. |
 | Agent legibility beats human-only convenience. | Router-selected playbooks and source maps make intent discoverable without overwhelming startup context. | Prefer repo structures that agents can inspect and verify over opaque external process. |
 | Application state, logs, metrics, and UI should be directly inspectable by agents. | Browser and context-tool policy lives in `70-capability-router.md` and `80-context-tools.md`; UI work routes to browser proof when relevant. | Do not claim browser/log/graph inspection unless the tool actually ran. Add richer observability only when project work needs it. |
 | Architecture and taste should be encoded as invariants. | Safety gate, review/security rules, design-pattern playbook, and verification matrix define protected boundaries. | State the invariant and proof path; avoid micromanaging implementation style unless drift repeats. |
@@ -53,7 +53,7 @@ Defer ideas when they mainly optimize for high-throughput merging, require heavy
 
 Strong alignment:
 
-- `memory-bank/00-HARNESS.md` is the map-first entry point.
+- `00-HARNESS.md` is the map-first entry point inside this root harness source.
 - Root adapters are thin and agent-neutral.
 - Memory files separate durable project facts from transient reflections.
 - Capability routing supports progressive disclosure.
@@ -63,20 +63,20 @@ Partial alignment:
 
 - Documentation freshness is mostly manual.
 - Verification matrix is manual proof, not a CI-enforced contract.
-- Browser, logs, metrics, Graphify, and other context tools are optional rather than fully integrated.
+- Browser, logs, metrics, code maps, and other context tools are optional rather than fully integrated.
 - No recurring doc-gardening or quality-score agent exists yet.
 
 Intentional divergence:
 
 - This repo does not adopt minimal blocking merge gates by default.
 - This repo does not prefer reimplementing dependencies solely for agent legibility unless there is a concrete local reason.
-- This repo keeps Graphify and similar indexes optional; source reading and verification remain the baseline.
+- This repo keeps optional indexes and code maps as helpers only; source reading and verification remain the baseline.
 
 ## Maintenance Rule
 
 When adding future harness-engineering lessons:
 
-1. Map the lesson to an existing memory-bank file before creating a new one.
+1. Map the lesson to an existing harness file before creating a new one.
 2. If it changes a durable rule, update the rule and `changelog.md`.
 3. If it proposes a larger structural improvement, add it to `HARNESS_BACKLOG.md`.
 4. If it changes a protected behavior, add or update `verificationMatrix.md`.

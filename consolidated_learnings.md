@@ -13,16 +13,15 @@
 - Keep language playbooks opt-in and compact. For large source guides such as C#/.NET, route detection can exist without bundling a heavy playbook until real project work needs it.
 - Treat working behavior as a protected contract. Agents must inspect impact, preserve existing logic unless change is requested or proven necessary, review diffs for unintended behavior changes, and verify the original symptom or feature before completion.
 - Keep code indexes and graph tools optional. Memory-bank, `.planning/codebase/`, local search, source reading, tests, and diff review are the baseline safety system.
-- For reusable harnesses, keep root adapters thin and put durable guidance in `memory-bank/`. Cline-style self-improvement should become explicit memory updates or backlog proposals, not automatic root rule churn.
+- For reusable harnesses, keep root adapters thin and put durable guidance in the harness entrypoint, rules, playbooks, and memory files. Cline-style self-improvement should become explicit memory updates or backlog proposals, not automatic root rule churn.
 - When importing user-provided agent protocols, synthesize them into compact routed rule modules and existing engineering lanes instead of pasting a second monolithic prompt that can drift or conflict.
 - OpenAI-style harness engineering maps cleanly onto this memory-bank when treated as criteria, not copied as a monolithic manual: agent legibility, progressive disclosure, enforceable invariants, human-attention leverage, feedback-loop closure, and entropy control.
 - Do not import high-throughput agent merge practices unless the repository has equally strong mechanical proof. In this repo, the strict safety gate remains the default.
 - To prevent agent-coded fragmentation, fullstack work needs an explicit discover-before-create rule: search existing symbols and domain patterns, reuse or extend owners, and report duplicate/shadowing checks before completion.
 - For coding agents, "best practices" must be operationalized as an impact scan and reference-check contract first, then routed OOP/design guidance second. Pattern advice alone does not prevent accidental deletion or duplicated owners.
 - For browser/fullstack automation, the practical default should be POM + Component + Flow with typed data-driven loaders. Screenplay can scale well in teams that choose its vocabulary, but it should not be the baseline because it adds ceremony and onboarding cost.
-
-## Project
-
-- The project uses Refine, MUI, and PocketBase. New UI and data changes should fit those existing provider/hook patterns.
-- PocketBase realtime behavior is sensitive to request headers; preserve the current bypass for realtime endpoints.
-- `web_canvas` should keep its automation architecture as unified `BrandPage` facade + POM components + `GameActions` + `BrandConfig`: public test methods and legacy template keys stay stable, while repeated login/popup/game canvas mechanics live in components and are protected by contract tests.
+- A clean harness source repository must not retain stale target-project facts. When copying the harness, immediately customize project, product, system, tech, progress, and verification memory.
+- Sequential-thinking MCP is a session-level guard, not only a complex-task helper. Running it before skills, edits, risky commands, and recovery loops gives agents a concrete task breakdown and retry counter.
+- Baby Steps are most useful when paired with validation and loop control: smallest meaningful step, one accomplishment, verify, then proceed. If the same step fails 3 times, stop and report the blocker instead of continuing an unbounded retry loop.
+- Compact coding-assistance prompts such as `v5.md` are best imported as small enforceable deltas, not wholesale prompt text. Useful durable deltas include rollback policy for Critical plans, read-only-only parallelism, no degrade-to-hide-errors safety, and automatic file plus Serena memory updates after durable changes.
+- Knowledge-graph tools such as Understand-Anything fit mem001 best as optional context helpers. They can speed onboarding, architecture orientation, domain discovery, and change-impact analysis, but their graph output is not proof; agents still verify important claims against source, tests, logs, runtime behavior, and diff review.

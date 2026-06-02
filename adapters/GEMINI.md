@@ -2,5 +2,11 @@
 
 Highest-priority project instruction:
 
-Read `memory-bank/00-HARNESS.md` first, then follow its load order exactly. After that, apply any Gemini-specific project guidance.
+Read the installed harness entrypoint first, then follow its load order exactly.
+
+Default installed path: `memory-bank/00-HARNESS.md`.
+
+If this harness is installed at repository root, use `00-HARNESS.md` instead.
+
+After that, apply any Gemini-specific project guidance.
 

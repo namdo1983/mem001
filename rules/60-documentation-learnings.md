@@ -10,6 +10,7 @@ Good documentation captures:
 - Why it changed.
 - How to run or verify it.
 - What future agents should know.
+- Whether sequential-thinking, Baby Steps, or the 3-retry recovery loop changed the outcome.
 
 ## Continuous Improvement
 

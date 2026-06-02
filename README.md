@@ -1,30 +1,32 @@
-# Memory Bank
+# Memory Bank Harness
 
-This folder is the portable engineering harness for the project. Agents should begin with `00-HARNESS.md`, then follow the chained core memory files and rule modules.
+This repository is a portable engineering harness for AI coding agents. Agents should begin with `00-HARNESS.md`, then follow the chained core memory files, rule modules, and routed playbooks.
 
 ## Reuse Policy
 
-`memory-bank/` can be kept local-only or committed to a repository.
+The harness can be kept local-only or committed to a repository.
 
-Use local-only when the memory contains personal workflow notes, private paths, internal URLs, customer data, or temporary debugging details. Add `memory-bank/` to `.gitignore` if it should stay private.
+Use local-only when the memory contains personal workflow notes, private paths, internal URLs, customer data, or temporary debugging details. Add the installed harness folder to `.gitignore` if it should stay private.
 
 Commit it when you want a reusable personal or team harness. Before committing, remove secrets, tokens, local machine paths, private endpoints, customer data, and overly personal scratch notes. Treat committed memory as project operating documentation.
 
-GSD is optional. If `.planning/` exists or the user invokes GSD, GSD is the lifecycle engine and memory-bank is the quick project contract. Without GSD, agents still use memory-bank, local search, source reading, tests, diff review, and the safety gate.
+GSD is optional. If `.planning/` exists or the user invokes GSD, GSD is the lifecycle engine and this harness is the quick project contract. Without GSD, agents still use harness memory, local search, source reading, tests, diff review, and the safety gate.
 
-Graphify and other index tools are optional. They may improve orientation, but the harness must still work with only memory-bank, `rg`, source files, tests, logs, and `.planning/codebase/` when present.
+Optional index tools may improve orientation, but the harness must still work with only local search, source files, tests, logs, and `.planning/codebase/` when present.
 
 ## Install In Another Project
 
-1. Copy `memory-bank/` into the target repository.
-2. Copy only the needed root adapter from `memory-bank/adapters/` to the repository root, such as `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or `ANTIGRAVITY.md`.
-3. Customize `projectBrief.md`, `productContext.md`, `systemPatterns.md`, and `techContext.md` for the real project.
-4. Remove stale project-specific facts from `activeContext.md`, `progress.md`, `changelog.md`, and `verificationMatrix.md`.
-5. Keep root adapters thin. Durable guidance belongs in `memory-bank/`.
+1. Copy this harness into the target repository, usually as `memory-bank/`.
+2. Copy only the needed root adapter from `adapters/` to the target repository root, such as `AGENTS.md`, `CLAUDE.md`, or `GEMINI.md`.
+3. Update the adapter path so it points to the real installed harness entrypoint, such as `memory-bank/00-HARNESS.md` or `00-HARNESS.md`.
+4. Customize `projectBrief.md`, `productContext.md`, `systemPatterns.md`, and `techContext.md` for the real project.
+5. Remove stale project-specific facts from `activeContext.md`, `progress.md`, `changelog.md`, and `verificationMatrix.md`.
+6. Keep root adapters thin. Durable guidance belongs in the harness.
 
 ## Core Files
 
 - `00-HARNESS.md`: highest-priority operating rule.
+- `AGENTS.md`: thin root adapter for agents that auto-load this filename.
 - `projectBrief.md`: project scope and success definition.
 - `productContext.md`: user and product intent.
 - `systemPatterns.md`: architecture and implementation patterns.
@@ -36,17 +38,31 @@ Graphify and other index tools are optional. They may improve orientation, but t
 - `raw_reflection_log.md`: fresh learnings not yet consolidated.
 - `verificationMatrix.md`: behavior-to-proof map for product and harness contracts.
 - `HARNESS_BACKLOG.md`: proposed harness improvements that should not be applied immediately.
-- `harnessEngineering.md`: OpenAI harness-engineering article distilled into local memory-bank criteria.
+- `harnessEngineering.md`: OpenAI harness-engineering article distilled into local harness criteria.
+
+## Required Agent Loop
+
+Every task starts with:
+
+1. Load `00-HARNESS.md` and the memory chain.
+2. Activate and recall Serena MCP memory when available.
+3. Run sequential-thinking MCP before skills, edits, or risky commands.
+4. Break the work into Baby Steps.
+5. Validate each step.
+6. If a step fails, re-run sequential-thinking MCP, choose the next smallest baby step, and retry.
+7. Stop after 3 retries on the same failing step and report the blocker to the user.
+
+The Baby Steps rule is based on the external `baby-steps.md` prompt from Cline, but this harness keeps a compact paraphrase instead of copying the source text.
 
 ## Rule Modules
 
-Rules live in `memory-bank/rules/` and are loaded in lexical order. Lower numbers have higher priority.
+Rules live in `rules/` and are loaded in lexical order. Lower numbers have higher priority.
 
-`20-engineering-loop.md` classifies each input by type, complexity lane, and risk flags. When GSD artifacts exist, GSD remains the lifecycle engine and memory-bank remains the quick project contract.
+`20-engineering-loop.md` classifies each input by type, complexity lane, risk flags, baby-step execution, and error recovery.
 
 `25-code-change-safety.md` blocks broad or speculative code edits and requires pre-completion diff review for code changes.
 
-`80-context-tools.md` centralizes optional context tools. Graphify is optional; memory-bank, local search, source reading, tests, and `.planning/codebase/` remain the baseline.
+`80-context-tools.md` centralizes optional context tools. Local search, source reading, tests, and diff review remain the baseline.
 
 ## Safety Gate
 
@@ -65,7 +81,7 @@ If an agent finds unrelated problems, it should record them in `HARNESS_BACKLOG.
 
 ## Routed Playbooks
 
-Expert playbooks live in `memory-bank/playbooks/`. They are not all loaded by default. `memory-bank/rules/70-capability-router.md` selects the matching playbooks based on repository files and the current task.
+Expert playbooks live in `playbooks/`. They are not all loaded by default. `rules/70-capability-router.md` selects the matching playbooks based on repository files and the current task.
 
 Examples:
 
@@ -80,9 +96,9 @@ Examples:
 
 ## Agent Adapters
 
-Adapter templates live in `memory-bank/adapters/`. For tools that only auto-read root files, copy the relevant adapter to the repository root.
+Adapter templates live in `adapters/`. For tools that only auto-read root files, copy the relevant adapter to the target repository root and point it to the installed harness path.
 
-Keep root adapters minimal. Project guidance belongs in `memory-bank/`; root files should only point the tool back to `memory-bank/00-HARNESS.md`.
+Keep root adapters minimal. Project guidance belongs in the harness; root files should only point the tool back to `00-HARNESS.md` or `memory-bank/00-HARNESS.md`.
 
 ## Self-Improvement Loop
 

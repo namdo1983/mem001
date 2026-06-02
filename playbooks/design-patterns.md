@@ -24,7 +24,7 @@ Load when a task involves architecture, refactoring, repeated branching, new mod
 
 Use when one interface must fit another without leaking tool-specific details.
 
-Harness use: `AGENTS.md`, `GEMINI.md`, and `CLAUDE.md` adapt different agents to the same `memory-bank/00-HARNESS.md`. Keep active root `.clinerules/` and `ANTIGRAVITY.md` absent unless a specific local tool requires them.
+Harness use: `AGENTS.md`, `GEMINI.md`, and `CLAUDE.md` adapt different agents to the same installed harness entrypoint. Keep active root `.clinerules/` and extra adapter files absent unless a specific local tool requires them.
 
 ### Strategy
 
@@ -66,7 +66,7 @@ Keep database/API details behind one project-local boundary so application logic
 
 Use for event streams, realtime updates, and subscriptions.
 
-In this project, PocketBase realtime and Refine invalidation follow this shape.
+Keep event subscription, invalidation, and listener cleanup policy in one owner when the project has realtime or pub-sub behavior.
 
 ### State Machine
 
