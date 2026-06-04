@@ -15,6 +15,7 @@ The current work is cleaning this repository into a root-level portable AI-agent
 7. 2026-06-02: Added root `AGENTS.md` as a thin adapter that points to `00-HARNESS.md`.
 8. 2026-06-02: Reviewed `windsurf-antigravity-rules` `v5.md` and adopted compact additions: rollback policy for Critical plans, read-only-only parallel execution, no degrade-to-hide-errors safety, complexity-matched reporting, and explicit Serena memory save after durable changes.
 9. 2026-06-02: Reviewed `Lum1104/Understand-Anything` and adopted it as an optional context-tool pattern for existing knowledge graphs, onboarding, architecture orientation, diff-impact analysis, domain-flow discovery, and knowledge-base exploration.
+10. 2026-06-04: Distilled Spec-Kit's Clarification Gate and Consistency Check into the Mandatory Reasoning Gate in 00-HARNESS.md, rules/20-engineering-loop.md, and init_harness.py.
 
 ## Active Decisions
 

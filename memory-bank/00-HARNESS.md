@@ -53,11 +53,13 @@ For every new session and every user task, the agent MUST call the sequential-th
 
 The sequential-thinking pass must identify:
 
-1. The requested outcome.
-2. The smallest meaningful next step.
-3. Relevant risks, affected files, and validation shape.
-4. Whether the task needs Fast Track, Standard, or Full Lifecycle handling.
-5. The current retry number when recovering from a failed step.
+1. **Clarification Gate:** Identify any ambiguities, assumptions, or missing requirements in the user request. Stop and ask the user or explicitly document assumptions if critical details are missing.
+2. **Consistency Check (Alignment):** Confirm that the proposed plan and tasks fully align with the project brief and tech context constraints without introducing duplicate plans.
+3. The requested outcome.
+4. The smallest meaningful next step.
+5. Relevant risks, affected files, and validation shape.
+6. Whether the task needs Fast Track, Standard, or Full Lifecycle handling.
+7. The current retry number when recovering from a failed step.
 
 If sequential-thinking MCP is unavailable, the agent must report that limitation before proceeding and use a short written reasoning substitute. Do not silently skip the gate.
 

@@ -15,3 +15,9 @@ npm-debug.log
 
 # Agent local state
 .serena/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

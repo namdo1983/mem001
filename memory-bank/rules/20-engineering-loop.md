@@ -63,7 +63,10 @@ For Full Lifecycle or Critical work, the plan must include:
 ## Operating Loop
 
 1. Understand the project context.
-2. Run sequential-thinking MCP and restate the work item internally: input type, complexity lane, affected docs/artifacts, validation shape, and smallest meaningful next step.
+2. Run sequential-thinking MCP (Mandatory Reasoning Gate):
+   - **Clarification Gate:** Identify and resolve ambiguities, assumptions, or missing details in the user request first.
+   - **Consistency Check:** Verify the planned tasks align with the project brief and constraints without duplication.
+   - Restate the work item internally: input type, complexity lane, affected docs/artifacts, validation shape, and smallest meaningful next step.
 3. For code changes, apply `25-code-change-safety.md` before editing.
 4. Make one Baby Step: the smallest meaningful change that can produce observable progress.
 5. Validate that step with the cheapest reliable check.

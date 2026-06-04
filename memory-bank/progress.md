@@ -10,6 +10,7 @@
 - v5-derived refinements are part of the harness contract: Critical rollback policy, read-only-only parallel execution, no degrade-to-hide-errors safety, complexity-matched reporting, and explicit Serena memory save after durable changes.
 - Understand-Anything is documented as an optional context tool for existing knowledge graphs, onboarding, architecture orientation, diff-impact analysis, domain-flow discovery, and knowledge-base exploration.
 - Core memory files no longer describe an unrelated automation monorepo.
+- Distilled Spec-Kit's Clarification Gate and Consistency Check into the Mandatory Reasoning Gate to improve spec-driven development without adding CLI tools or folder bloat.
 
 ## Remaining
 
