@@ -379,9 +379,38 @@ def fetch_url(url: str) -> str:
 
 
 def create_root_files(agents_str: str) -> None:
-    """Tạo AGENTS.md tại thư mục hiện tại (root)."""
-    print("\n📁 [1/3] Khởi tạo AGENTS.md (Root)...")
-    write_file_safe("AGENTS.md", get_agents_md(agents_str))
+    """Tạo các file con trỏ rule (AGENTS.md, CLAUDE.md, .cursorrules, .agents/rules/harness.md) tại thư mục hiện tại (root)."""
+    print("\n📁 [1/3] Khởi tạo các file cấu hình rules/adapters...")
+    
+    # Nội dung con trỏ chuẩn trỏ về 00-HARNESS.md dùng link tương đối
+    pointer_content = """# Agent Bootstrap
+
+At the very start of the session, before answering any user request or taking any action, you MUST immediately read and follow the cross-agent engineering harness defined in:
+- [00-HARNESS.md](memory-bank/00-HARNESS.md)
+"""
+    
+    # 1. Tạo AGENTS.md (OpenCode)
+    write_file_safe("AGENTS.md", pointer_content)
+    
+    # 2. Tạo CLAUDE.md (Claude Code)
+    write_file_safe("CLAUDE.md", pointer_content)
+    
+    # 3. Tạo .cursorrules (Cursor / Cline)
+    write_file_safe(".cursorrules", pointer_content)
+    
+    # 4. Tạo Workspace Rule cho AG IDE
+    ag_ide_rule = """---
+name: Load Harness & Serena Memory
+description: Bootstrap the cross-agent engineering harness.
+trigger: always_on
+---
+
+# Agent Bootstrap
+
+At the very start of the session, before answering any user request or taking any action, you MUST immediately read and follow the cross-agent engineering harness defined in:
+- [00-HARNESS.md](memory-bank/00-HARNESS.md)
+"""
+    write_file_safe(os.path.join(".agents", "rules", "harness.md"), ag_ide_rule)
 
 
 def create_memory_bank() -> None:
@@ -441,7 +470,12 @@ def print_summary() -> None:
     print("=" * 60)
     print("""
   project-root/
-  ├── AGENTS.md                              ← Cổng vào (root)
+  ├── AGENTS.md                              ← Cổng vào cho OpenCode
+  ├── CLAUDE.md                              ← Cổng vào cho Claude Code
+  ├── .cursorrules                           ← Cổng vào cho Cursor & Cline
+  ├── .agents/
+  │   └── rules/
+  │       └── harness.md                     ← Cổng vào cho AG IDE
   └── memory-bank/                           ← Toàn bộ hệ thống
       ├── 00-HARNESS.md                      ← Luật thép
       ├── projectBrief.md
@@ -460,8 +494,8 @@ def print_summary() -> None:
           ├── improve-codebase-architecture.md
           └── grill-with-docs.md
 """)
-    print("💡 Mở dự án bằng AI Agent → AI tự đọc AGENTS.md → memory-bank/")
-    print("   → Load skills khi cần. Bắt đầu code!\n")
+    print("💡 Mở dự án bằng AI Agent → Tự động đọc file cấu hình tương ứng → memory-bank/")
+    print("   → Load playbooks khi cần. Bắt đầu code!\n")
 
 
 # ============================================================
