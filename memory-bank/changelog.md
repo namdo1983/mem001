@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased] - 2026-06-12
+
+### Updated
+- Updated README.md philosophy table: removed stale `Verification Matrix` (Repository Harness).
+- Updated `.cursorrules` and `AGENTS.md` to use relative paths (`memory-bank/00-HARNESS.md`) and added compliance check rules (Output Anchors) to prevent Gemini/Claude from bypassing rules.
+
 ## [Unreleased] - 2026-06-02
 
 ### Added

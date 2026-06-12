@@ -77,7 +77,6 @@ Trong quá trình làm việc, AI sẽ tự cập nhật các file trong `memory
 | Skills/Playbooks | [Matt Pocock](https://github.com/mattpocock/skills) | Kỹ năng thực chiến: TDD, Debug, Refactor |
 | Memory Bank | [Cline Memory Bank](https://github.com/cline/cline) | Bộ nhớ dài hạn cho AI qua nhiều phiên |
 | Baby Steps | [Cline Baby Steps](https://github.com/cline/prompts) | Làm từng bước nhỏ, test sau mỗi bước |
-| Verification Matrix | [Repository Harness](https://github.com/hoangnb24/repository-harness) | Ma trận kiểm chứng: sửa gì → test gì |
 
 ## 📝 License
 
